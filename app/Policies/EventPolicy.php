@@ -27,7 +27,7 @@ class EventPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(?User $user): bool
+    public function create(User $user): bool
     {
         return true;
     }
@@ -45,7 +45,7 @@ class EventPolicy
      */
     public function delete(User $user, Event $event): bool
     {
-        //
+        return $user->id === $event->user_id;
     }
 
     /**
